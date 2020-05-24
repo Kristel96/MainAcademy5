@@ -1,4 +1,0 @@
-HeLLO mY Team!
-Let a ="Hi";
-Testetstest
-Apple

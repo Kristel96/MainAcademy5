@@ -1,20 +1,38 @@
-table{
-    width: 100%
+body{
+    margin: 0;
 }
-td{
-    text-align: center;
-    padding: 15px;
+header{
+    text-align:right;
 }
-thead{
-    background-color: red;
-    color: white;
+header,footer{
+    background-color: #c5f0ff;
 }
-tbody{
-    background-color: violet;
+div{
+    background-color: white;
 }
-tfoot{
-    background-color: aquamarine;
+header>button, footer>button{
+
+     background-color: #0bbdff;
+     color: #ffffff;
+ }
+section{
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid blue;
 }
-img{
-    width: 300px;
+p{
+    background-color: rgba(255, 255, 0, 0.29);
+}
+p>button{
+
+    background-color: #6f0001;
+    color: #ffffff;
+}
+section>button{
+    background-color: #ffffff;
+    color: #0bbdff;
+}
+.btn{
+    padding: 5px;
+    margin: 5px;
 }

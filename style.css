@@ -1,32 +1,24 @@
-body{
-    margin: 0;
-    background-image: url("assets/world-map.png");
-    background-position: top;
+.container1{
+    padding: 15px;
+    background-color: violet;
 }
-h1{
-    letter-spacing: 4px;
-    font-family: sans-serif;
-    text-align: center;
-    font-weight: bold;
+.container1 > button{
+    padding: 15px;
+    margin: 10px;
 }
-h2{
-    letter-spacing: 2px;
-    font-family: cursive;
-    font-style: italic;
-    text-align: center;
-    font-weight: normal;
+.container1 > button:first-child{
+    margin-left: 0;
 }
-a{
-    color: #0bbdff;
+.container2{
+    background-color: #ee9491;
+    padding: 15px;
+    margin-top: 40px;
+    width: 30%;
 }
-a:visited{
-    color: #858585;
-}
-a:active{
-    color: yellow;
-}
-article{
-    color: #3e3e3e;
-    text-indent: 20px;
-    margin: 0 20px;
+.container2 > button{
+    width: 45%;
+    margin-right: 5%;
+    border: 0;
+    box-sizing: border-box;
+    display: inline-flex;
 }

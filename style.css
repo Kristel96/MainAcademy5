@@ -1,38 +1,32 @@
 body{
     margin: 0;
+    background-image: url("assets/world-map.png");
+    background-position: top;
 }
-header{
-    text-align:right;
+h1{
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
 }
-header,footer{
-    background-color: #c5f0ff;
+h2{
+    letter-spacing: 2px;
+    font-family: cursive;
+    font-style: italic;
+    text-align: center;
+    font-weight: normal;
 }
-div{
-    background-color: white;
-}
-header>button, footer>button{
-
-     background-color: #0bbdff;
-     color: #ffffff;
- }
-section{
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid blue;
-}
-p{
-    background-color: rgba(255, 255, 0, 0.29);
-}
-p>button{
-
-    background-color: #6f0001;
-    color: #ffffff;
-}
-section>button{
-    background-color: #ffffff;
+a{
     color: #0bbdff;
 }
-.btn{
-    padding: 5px;
-    margin: 5px;
+a:visited{
+    color: #858585;
+}
+a:active{
+    color: yellow;
+}
+article{
+    color: #3e3e3e;
+    text-indent: 20px;
+    margin: 0 20px;
 }

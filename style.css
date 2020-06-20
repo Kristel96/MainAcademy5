@@ -1,24 +1,63 @@
-.container1{
-    padding: 15px;
-    background-color: violet;
+body{
+    background-image: url("assets/space.jpg");
 }
-.container1 > button{
-    padding: 15px;
-    margin: 10px;
+
+.orbit{
+    top: 100px;
+    margin: 0 auto;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation-name: spin;
+    animation-duration: 5s;
+    animation-iteration-count: infinite ;
+    animation-timing-function: linear;
 }
-.container1 > button:first-child{
-    margin-left: 0;
+.orbit:hover{
+    animation-play-state: paused;
 }
-.container2{
-    background-color: #ee9491;
-    padding: 15px;
-    margin-top: 40px;
-    width: 30%;
+.mars{
+    top: 7px;
+    left: 7px;
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: red;
+    border-radius: 50%;
 }
-.container2 > button{
-    width: 45%;
-    margin-right: 5%;
-    border: 0;
-    box-sizing: border-box;
-    display: inline-flex;
+.wrap{
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+    height: 300px;
+    width: 300px;
 }
+.sun{
+    margin: auto;
+    position: absolute;
+    top: 180px;
+    left: 75px;
+    height: 150px;
+    width: 150px;
+    background-color: #fffd28;
+    border-radius: 50%;
+}
+
+.sun:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    cursor: pointer;
+    animation-play-state: running;
+}
+.mars:hover{
+    transition: 1s;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+@keyframes spin {
+    from {transform: rotate(0deg) }
+    to{transform: rotate(360deg) }
+}
+

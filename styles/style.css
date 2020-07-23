@@ -1,18 +1,9 @@
 .bg-dark {
-  background-color: black!important;
+  background-color: black !important;
   color: white;
 }
-.carousel-img {
-  height: 600px;
+.myBtn{
+  padding: 15px;
+  background-color: aqua;
+  color: black;
 }
-.mrg {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.media-img {
-  height: 100px;
-}
-.jumbotron {
-  background-color: white;
-}
-/*# sourceMappingURL=style.css.map */

@@ -1,9 +1,10 @@
-.bg-dark {
-  background-color: black !important;
-  color: white;
+.form-wrapper{
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
 }
-.myBtn{
-  padding: 15px;
-  background-color: aqua;
-  color: black;
+#submitRegistration{
+  padding: 20px;
+  background-color: blue;
+  color:white;
 }

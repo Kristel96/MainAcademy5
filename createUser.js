@@ -24,3 +24,18 @@
     xhttp.open("POST", url, true);
     xhttp.send(sendData);
 }
+
+// Видалення обєкта
+
+let deletepath = "/api/users/2";
+let deleteuser = new XMLHttpRequest();
+    deleteuser.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 204) {
+            let data = this.response;
+            let parsedData =  JSON.parse(data);
+            console.dir(parsedData);
+        }
+    };
+    let url = urlBase + deletepath;
+    deleteuser.open("DELETE", url, true);
+    deleteuser.send();

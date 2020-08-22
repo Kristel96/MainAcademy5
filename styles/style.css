@@ -1,5 +1,22 @@
-.navColors {
-  height: 30px;
-  background-color: red;
+#mainContainer {
+  margin: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#mainContainer .userblock {
+  margin: 20px;
+  border: 2px solid blue;
+  border-radius: 20px;
+  padding: 20px;
+  flex-basis: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+#mainContainer .userblock img {
+  border-radius: 20px;
+}
+.buttonsConatiner {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -19,4 +19,13 @@
 .buttonsConatiner {
   text-align: center;
 }
+.buttonText {
+  height: 30px;
+  padding: 5px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

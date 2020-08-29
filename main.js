@@ -72,7 +72,13 @@ function buildUsersList(users) {
     let img = createEl("img");
     img.src = item.avatar;
 
+    let editbutton = createEl("button");
+    let buttonText = createTe("Edit User");
+        editbutton.appendChild(buttonText);
+        editbutton.className = "buttonText";
+        editbutton.id = item.id;
 
+    userElement.appendChild(editbutton);
     userElement.appendChild(img);
     userElement.appendChild(fullNameContainer);
     userElement.appendChild(emailContainer);
@@ -80,6 +86,30 @@ function buildUsersList(users) {
 
     mainContainer.appendChild(userElement);
     console.dir(item);
+
+        editbutton.onclick = (event)=>{
+         let userid = event.target.id;
+            let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            let data = this.response;
+            let parsedData =  JSON.parse(data);
+            console.dir(parsedData);
+        }
+    };
+     let patchpath = "/api/users/"+userid;
+    let url = urlBase + patchpath;
+    let usereditobject = {
+        name: "morpheus",
+        job: "zion resident"
+    };
+    let sendData =JSON.stringify(usereditobject);
+    xhttp.open("PATCH", url, true);
+    xhttp.send(sendData);
+
+
+
+        }
 });
 }
 

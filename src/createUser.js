@@ -1,26 +1,26 @@
-    let urlBase = "https://reqres.in";
-    let xhttp = new XMLHttpRequest();
-    let path = "/api/users";
-    let allUsers = [];
+    var urlBase = "https://reqres.in";
+    var xhttp = new XMLHttpRequest();
+    var path = "/api/users";
+    var allUsers = [];
 
-    let submBtn = document.getElementById("submit");
-    submBtn.onclick = ()=>{
-      let name = document.getElementById("name").value ;
-      let job = document.getElementById("job").value;
-      let userObject = {};
+    var submBtn = document.getElementById("submit");
+    submBtn.onclick = function(){
+        var name = document.getElementById("name").value ;
+        var job = document.getElementById("job").value;
+        var userObject = {};
       userObject.name = name;
       userObject.job = job;
       allUsers.push(userObject);
-        let all =  JSON.stringify(allUsers);
+        var all =  JSON.stringify(allUsers);
         localStorage.setItem("password", all);
 
         sessionStorage.setItem("session","akdjfhgfsljkghfjghsdflgjdfhhkdjfgnlbsfdgblsfdgngblbsfg");
 
         setCookie("name","Tom", 12);
         function setCookie(cname, cvalue, exdays) {
-            let d = new Date();
+            var d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
+            var expires = "expires="+ d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         // createUser(userObject);

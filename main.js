@@ -113,3 +113,50 @@ function buildUsersList(users) {
 });
 }
 
+WebSocketTest();
+function WebSocketTest() {
+
+    if ("WebSocket" in window) {
+        alert("WebSocket is supported by your Browser!");
+
+        // Let us open a web socket
+        var ws = new WebSocket("wss://ws.blockchain.info/inv");
+
+        let obj = {
+            op:"ping"
+        };
+
+        ws.onopen = function() {
+
+            // Web Socket is connected, send data using send()
+            // ws.send(JSON.stringify(obj));
+            alert("Message is sent...");
+            var sub = {op:"unconfirmed_sub"};
+            ws.send(JSON.stringify(sub));
+            setTimeout(()=>{
+                let unsub = {op:"unconfirmed_unsub"};
+                ws.send(JSON.stringify(unsub));
+            },6000)
+
+        };
+
+        ws.onmessage = function (evt) {
+            var received_msg = evt.data;
+            let message = JSON.parse(received_msg);
+            drawSize(message.x.size);
+        };
+
+        ws.onclose = function() {
+
+            // websocket is closed.
+            alert("Connection is closed...");
+        };
+    } else {
+
+        // The browser doesn't support WebSocket
+        alert("WebSocket NOT supported by your Browser!");
+    }
+}
+function drawSize(size){
+    document.getElementById("size").innerHTML = size;
+}

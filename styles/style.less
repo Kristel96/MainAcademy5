@@ -3,6 +3,58 @@ body{
   background: #FDC830;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  #navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: #F37335;
+    .main-tabs{
+      button{
+        font-family: monospace;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px;
+        border: 0;
+        background-color: #F37335;
+        &:hover{
+          cursor: pointer;
+          color: azure;
+          transition: 0.3s;
+        }
+
+      }
+    }
+    .search-continer{
+      #search{
+        background-image: url("../swarch.svg");
+        background-repeat: no-repeat;
+        background-size: 30px;
+        background-position: right;
+        background-color: #F37335;
+        border-top: 0;
+        border-right: 0;
+        border-left: 0;
+        border-bottom:2px solid black;
+        outline: none;
+        padding: 10px 5px 0 5px;
+
+        font-family: monospace;
+        font-weight: bold;
+        font-size: 20px;
+        &:focus {
+          background-image:none;
+          color: azure;
+          border-bottom-color: azure;
+          transition: 0.3s;
+      }
+      }
+      img{
+        width: 30px;
+      }
+    }
+  }
+
+
+
 
   .cont{
     margin: auto;

@@ -1,5 +1,5 @@
 let apikey = "3bcb757b3ebe4adeeb1c3a7d2a3c4dcc";
-let language = "uk";
+let language = "en";
 let page = 1;
 let url =`https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&language=${language}&page=${page}`;
 let imageServer = "https://image.tmdb.org/t/p/w300/";
@@ -25,16 +25,36 @@ xhttp.onreadystatechange = function() {
 
          let textContainer = crEl("div");
          textContainer.className = "text-wrap";
+
          let titleElement = crEl("p");
          let titleHeadingWrap = crEl("span");
-         let titleHeading = crTe("Назва: ");
+         let titleHeading = crTe("Title: ");
          titleHeadingWrap.appendChild(titleHeading);
          let titleValue = crTe(item.title);
          titleElement.appendChild(titleHeadingWrap);
          titleElement.appendChild(titleValue);
 
+         let overviewElement = crEl("p");
+         let overviewHeadingWrap = crEl("span");
+         let overviewHeading = crTe("Description: ");
+         overviewHeadingWrap.appendChild(overviewHeading);
+         let overview = crTe(item.overview);
+         overviewElement.appendChild(overviewHeadingWrap);
+         overviewElement.appendChild(overview);
+
+         let voteElement = crEl("div");
+         let voteImg = crEl("img");
+         voteImg.className = "voteImg";
+         voteImg.src = "like.svg";
+         let voteHeading = crTe(item.vote_count);
+
+         voteElement.appendChild(voteImg);
+         voteElement.appendChild(voteHeading);
+
 
          textContainer.appendChild(titleElement);
+         textContainer.appendChild(overviewElement);
+         textContainer.appendChild(voteElement);
          elementCont.appendChild(textContainer);
          container.appendChild(elementCont);
      })
@@ -59,11 +79,11 @@ function getE(id) {
 // id: 724089
 // original_language: "en"
 // original_title: "Gabriel's Inferno Part II"
-// overview: "Професор Габріель Емерсон, нарешті, дізнається правду про особу Джулії Мітчел, але його усвідомлення приходить занадто пізно. Джулії набридло чекати, коли шановний  Данте згадає про неї, і більше не хоче мати з ним нічого спільного. Чи може Габріель повернути її прихильність, перш ніж вона знайде кохання десь інакше?"
+//------ overview: "Професор Габріель Емерсон, нарешті, дізнається правду про особу Джулії Мітчел, але його усвідомлення приходить занадто пізно. Джулії набридло чекати, коли шановний  Данте згадає про неї, і більше не хоче мати з ним нічого спільного. Чи може Габріель повернути її прихильність, перш ніж вона знайде кохання десь інакше?"
 // popularity: 14.254
 // poster_path: "/pci1ArYW7oJ2eyTo2NMYEKHHiCP.jpg"
 // release_date: "2020-07-31"
-// title: "Інферно Габрієля 2"
+//---- title: "Інферно Габрієля 2"
 // video: false
 // vote_average: 9
 // vote_count: 809

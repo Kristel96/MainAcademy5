@@ -84,4 +84,15 @@ body .more-button-container button {
   font-weight: bold;
   font-size: 20px;
 }
+body .more-button-container .pagination-container {
+  display: flex;
+}
+body .more-button-container .pagination-container .pag {
+  padding: 0 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+body .more-button-container .pagination-container .pag:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */

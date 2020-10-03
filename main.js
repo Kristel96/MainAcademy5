@@ -7,6 +7,7 @@ let searchUrlBase = "https://api.themoviedb.org/3/search/";
 let lastRequest = "";
 let removeContent = true;
 let keyWord = "";
+let totalPages;
 
 
 getTopRated();
@@ -89,29 +90,48 @@ getE("upcoming").onclick = function () {
 
 getE("more").onclick = function () {
     page++;
-
-switch (lastRequest) {
-    case "getTopRated":getTopRated();
-    break;
-    case "getLatest":getLatest();
-    break;
-    case "getPopular":getPopular();
-    break;
-    case "getUpcoming":getUpcoming();
-    break;
-    case "searchMovie": searchMovie(keyWord);
-    break;
-    default: getTopRated();
-}
+    repeatedRequest();
 };
-
-
+getE("left").onclick = function () {
+    if(page>1){
+        page--;
+    }else{
+        page = 1;
+    }
+    repeatedRequest();
+};
+getE("right").onclick = function(){
+    if(page<totalPages){
+        page++;
+    }
+    if(page ===totalPages){
+        this.style.color = "grey"
+    }
+    repeatedRequest();
+    scroll(0, 0);
+};
+function repeatedRequest(){
+    switch (lastRequest) {
+        case "getTopRated":getTopRated();
+            break;
+        case "getLatest":getLatest();
+            break;
+        case "getPopular":getPopular();
+            break;
+        case "getUpcoming":getUpcoming();
+            break;
+        case "searchMovie": searchMovie(keyWord);
+            break;
+        default: getTopRated();
+    }
+}
 
 function getData(url){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             let response = JSON.parse(xhttp.response);
+            totalPages = response.total_pages;
             let filmsArray =  response.results;
             let container = getE("main");
             if(removeContent){

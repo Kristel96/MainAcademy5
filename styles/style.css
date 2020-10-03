@@ -1,15 +1,86 @@
-.cont {
-  margin: auto;
-  width: 70vw;
+body {
+  margin: 0;
+  background: #FDC830;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F37335, #FDC830);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F37335, #FDC830);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.cont .element-container {
+body #navbar {
   display: flex;
+  justify-content: space-around;
+  background-color: #F37335;
 }
-.cont .element-container .text-wrap {
+body #navbar .main-tabs button {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border: 0;
+  background-color: #F37335;
+}
+body #navbar .main-tabs button:hover {
+  cursor: pointer;
+  color: azure;
+  transition: 0.3s;
+}
+body #navbar .search-continer #search {
+  background-image: url("../swarch.svg");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: right;
+  background-color: #F37335;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 2px solid black;
+  outline: none;
+  padding: 10px 5px 0 5px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+body #navbar .search-continer #search:focus {
+  background-image: none;
+  color: azure;
+  border-bottom-color: azure;
+  transition: 0.3s;
+}
+body #navbar .search-continer img {
+  width: 30px;
+}
+body .cont {
+  margin: auto;
+  width: 620px;
+}
+body .cont .element-container {
+  display: flex;
+  margin: 20px;
+  background-color: #00000012;
+  padding: 15px;
+}
+body .cont .element-container .text-wrap {
   font-family: monospace;
   padding: 20px;
 }
-.cont .element-container .text-wrap span {
+body .cont .element-container .text-wrap span {
+  font-weight: bold;
+  font-size: 20px;
+}
+body .cont .element-container .text-wrap .voteImg {
+  width: 10px;
+}
+body .more-button-container {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+body .more-button-container button {
+  padding: 10px;
+  background-color: #F37335;
+  color: white;
+  font-family: monospace;
   font-weight: bold;
   font-size: 20px;
 }

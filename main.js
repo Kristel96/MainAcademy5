@@ -4,44 +4,58 @@ let page = 1;
 let imageServer = "https://image.tmdb.org/t/p/w300/";
 let urlBase = "https://api.themoviedb.org/3/movie/";
 let searchUrlBase = "https://api.themoviedb.org/3/search/";
+let lastRequest = "";
+let removeContent = true;
+let keyWord = "";
 
 
 getTopRated();
 
 function getTopRated(){
+    lastRequest = "getTopRated";
     let url =`${urlBase}top_rated?api_key=${apikey}&language=${language}&page=${page}`;
     getData(url)
 }
 function getLatest() {
+    lastRequest = "getLatest";
     let url =`${urlBase}now_playing?api_key=${apikey}&language=${language}`;
     getData(url)
 }
 function getPopular() {
+    lastRequest = "getPopular";
     let url =`${urlBase}popular?api_key=${apikey}&language=${language}&page=${page}`;
     getData(url)
 }
 function getUpcoming(){
+    lastRequest = "getUpcoming";
     let url =`${urlBase}upcoming?api_key=${apikey}&language=${language}&page=${page}`;
     getData(url)
 }
 
 
 function searchMovie(keyword){
+    removeContent = true;
+    lastRequest = "searchMovie";
     let url =`${searchUrlBase}movie?api_key=${apikey}&query=${keyword}&page=${page}`;
     getData(url)
 }
 let search = getE("search");
 
 search.onblur = function () {
-    sendKeyWord()
+    page=1;
+    keyWord = search.value;
+    sendKeyWord(keyWord)
 };
 
 search.onkeydown =function(event){
 if(event.which ===13){
-    sendKeyWord(this.value);
+    page = 1;
+    keyWord = this.value;
+    sendKeyWord(keyWord);
 }};
 
 function sendKeyWord(key){
+
     let keyword = key;
     if(keyword !==""){
         searchMovie(keyword);
@@ -51,20 +65,45 @@ function sendKeyWord(key){
 
 
 getE("latest").onclick = function () {
+    page=1;
+    removeContent = true;
     getLatest();
 };
 getE("toprated").onclick = function () {
+    page=1;
+    removeContent = true;
     getTopRated();
 };
 
 getE("popular").onclick = function () {
+    page=1;
+    removeContent = true;
     getPopular();
 };
 
 getE("upcoming").onclick = function () {
+    page=1;
+    removeContent = true;
     getUpcoming();
 };
 
+getE("more").onclick = function () {
+    page++;
+
+switch (lastRequest) {
+    case "getTopRated":getTopRated();
+    break;
+    case "getLatest":getLatest();
+    break;
+    case "getPopular":getPopular();
+    break;
+    case "getUpcoming":getUpcoming();
+    break;
+    case "searchMovie": searchMovie(keyWord);
+    break;
+    default: getTopRated();
+}
+};
 
 
 
@@ -75,7 +114,9 @@ function getData(url){
             let response = JSON.parse(xhttp.response);
             let filmsArray =  response.results;
             let container = getE("main");
-            container.innerHTML = "";
+            if(removeContent){
+                container.innerHTML = "";
+            }
             filmsArray.forEach(function (item) {
                 createMovieCard(item, container);
             })
